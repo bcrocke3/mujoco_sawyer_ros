@@ -1,0 +1,3 @@
+[submodule "ros_ws/src/relaxed_ik_ros1/relaxed_ik_core"]
+	path = ros_ws/src/relaxed_ik_ros1/relaxed_ik_core
+	url = https://github.com/uwgraphics/relaxed_ik_core.git

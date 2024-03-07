@@ -23,7 +23,7 @@ class SimulationServer():
 
         self.pose_srv = rospy.Service("get_pose", GetPose, self.handle_get_pose_request)
 
-        sawyer_basic_scene = "/home/breanne/repos/mujoco_menagerie/rethink_robotics_sawyer/scene.xml"
+        sawyer_basic_scene = "/home/breanne/repos/mujoco_sawyer_ros/mujoco_models/sawyer/scene.xml"
         self.visualizer = MuJoCoVisualizer(sawyer_basic_scene)
 
 
