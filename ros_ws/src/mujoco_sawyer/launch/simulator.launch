@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<launch>
+
+    <!-- Set this variable to be the path to the Python3 virtual environment -->
+    <!-- All nodes should include: launch-prefix = "$(arg venv)" -->
+    <arg name="venv" value="/home/breanne/repos/mujoco-learning/mujoco-learning-venv/bin/python3" />
+
+    <!-- Start the simulator -->
+    <node pkg="relaxed_ik_ros1" type="ik_server.py" name="ik_server" output="screen" launch-prefix = "$(arg venv)" />
+    <node pkg="mujoco_sawyer" type="simulation_server.py" name="simulator" output="screen" launch-prefix = "$(arg venv)" />
+    
+
+</launch>
