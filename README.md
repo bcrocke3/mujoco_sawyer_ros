@@ -35,19 +35,19 @@
 ## Test if you setup correctly
 1. Source ROS. `source /opt/ros/noetic/setup.bash`
 2. Build & source the ROS workspace. 
-  - `catkin_make`
-  - `source ros_ws/devel/setup.bash`
+    - `catkin_make`
+    - `source ros_ws/devel/setup.bash`
 3. Launch the simulator. `roslaunch mujoco_sawyer simulator.launch`
     - This should open a GUI window with the sawyer robot in a mujoco environment.
 4. Open a new terminal. Source ROS and the workspace. Activate your python environment.
-  - `source /opt/ros/noetic/setup.bash`
-  - `source ros_ws/devel/setup.bash`
-  - `source venv/bin/activate`
+    - `source /opt/ros/noetic/setup.bash`
+    - `source ros_ws/devel/setup.bash`
+    - `source venv/bin/activate`
 5. Run a test command. 
-  - Set the joint positions (params are joint positions in radians): `rosrun mujoco_sawyer test_sim_client.py --joints -1.58 0.0 0.0 -1.58 0.0 0.0 0.0`
-  - Set the end effector pose (params are x, y, z  in meters and x, y, z, w quaternion): `rosrun mujoco_sawyer test_sim_client.py --pose 1.0 0.8 0.8 0.0 0.0 0.0 1.0`
+    - Set the joint positions (params are joint positions in radians): `rosrun mujoco_sawyer test_sim_client.py --joints -1.58 0.0 0.0 -1.58 0.0 0.0 0.0`
+    - Set the end effector pose (params are x, y, z  in meters and x, y, z, w quaternion): `rosrun mujoco_sawyer test_sim_client.py --pose 1.0 0.8 0.8 0.0 0.0 0.0 1.0`
 
 
 ## Notes
-- The test section describes how to manually publish to the sim server to move the robot. You'll probably want to do this programmatically. Look at the `test_sim_client.py` file as an example.
+- The test section describes how to manually publish to the sim server to move the robot. You'll probably want to do this programmatically. Look at the `test_sim_client.py` file as an example. This is slightly different than moving the real sawyer robot. Real Sawyer publishes to a topic, this sim makes a service call.
 - The simulator uses a PID controller to determine joint torques to move to the desired joint positions. The PID gains are set in the `ros_ws/src/mujoco_sawyer/src/mujoco_viz/mujoco_visualizer.py` file. Gains are not very well tuned. There might be a better option than a PID for this.
